@@ -1,0 +1,61 @@
+<div class="container mt-3">
+    <div class="card">
+      <div class="card-body">
+        <!--pipe |-->
+        <h2 class="card-title text-center"> REPORT:</h2>
+        <!--Binding form with reactive form using form variable declaring on form-technician.ts:-->
+        <form [formGroup]="form" (ngSubmit)="addReport()">
+          <!--TO BINDING EACH FORM, WE USE DIRECTIVE 'FORMCONTROLNAME="REFERECE"'-->
+          <div class="form-group mb-3">
+            <label for="technicianid"><strong>Technician id:</strong></label>
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fas fa-check-square"
+                [class.green-icon]="this.form.get('technicianid')?.valid"></i>
+              </span>
+              <input type="text" id="technicianid" class="form-control" formControlName="technicianid" maxlength="36" placeholder="enter technician ID">
+            </div>
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="serviceId"><strong>Services id:</strong></label>
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fas fa-check-square"
+                [class.green-icon]="this.form.get('serviceid')?.valid"></i>
+              </span>
+              <input type="text" id="serviceId" class="form-control" formControlName="serviceid" maxlength="36" placeholder="enter services ID">
+            </div>
+          </div>
+          
+          <div class="form-group mb-3">
+            <label for="initdate"><strong>Init date:</strong></label>
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fas fa-check-square"
+                [class.green-icon]="this.form.get('initDate')?.valid"></i>
+              </span>
+              <input type="datetime-local" id="initdate" class="form-control" formControlName="initDate" value="2017-06-01T08:30" [min]="minDate" [max]="maxDate">
+            </div>
+          </div>
+             
+          <div class="form-group mb-3">
+            <label for="enddate"><strong>End date:</strong></label>
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fas fa-check-square"
+                [class.green-icon]="this.form.get('endDate')?.valid"></i>
+              </span>
+              <input type="datetime-local" id="enddate" class="form-control" formControlName="endDate" value="2017-06-01T08:30" [min]="minDate" [max]="maxDate">
+            </div>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-success btn-block"  [disabled]="form.invalid" type="submit"> <i class="fas fa-database"></i>&nbsp; Submit</button>
+          </div>
+        </form>
+          
+
+      </div>
+    </div>
+  </div>
+  
